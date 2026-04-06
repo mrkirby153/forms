@@ -1,0 +1,7 @@
+pre-commit:
+  parallel: true
+  jobs:
+    - name: compile typescript
+      glob: "*.{ts,tsx}"
+      run: "pnpm run build"
+      stage_fixed: true
