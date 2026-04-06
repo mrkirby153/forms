@@ -1,0 +1,1 @@
+var e={};function o(t){return{ok:!0,data:t,errors:void 0}}function s(t){return{ok:!1,errors:typeof t=="string"?{error:t}:t}}function n(t){return t.ok===!1}function u(t){return t.ok===!0}export{s as error,e as initialState,n as isError,u as isSuccess,o as ok};

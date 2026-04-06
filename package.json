@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "build": "rm -rf dist && tsc"
+    "build": "rm -rf dist && tsup src/index.ts --format cjs,esm --dts --minify"
   },
   "keywords": [],
   "author": "mrkirby153",
@@ -12,6 +12,7 @@
   "devDependencies": {
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
+    "tsup": "^8.5.1",
     "typescript": "^6.0.2"
   },
   "peerDependencies": {
