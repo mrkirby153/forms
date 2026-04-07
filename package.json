@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "build": "rm -rf dist && tsup src/index.ts --format cjs,esm --dts --minify",
-    "watch": "tsup src/index.ts --format cjs,esm --dts --minify --watch"
+    "build": "rm -rf dist && tsup src/index.ts src/client.ts --format cjs,esm --dts --minify --no-splitting",
+    "watch": "tsup src/index.ts src/client.ts --format cjs,esm --dts --minify --no-splitting --watch"
   },
   "keywords": [],
   "author": "mrkirby153",
@@ -28,6 +28,11 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
       "require": "./dist/index.js"
+    },
+    "./client": {
+      "types": "./dist/client.d.ts",
+      "import": "./dist/client.mjs",
+      "require": "./dist/client.js"
     }
   },
   "dependencies": {
