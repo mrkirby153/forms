@@ -1,3 +1,6 @@
+import React$1, { FormHTMLAttributes } from 'react';
+import * as react_jsx_runtime from 'react/jsx-runtime';
+
 /**
  * Initial form state
  */
@@ -60,4 +63,27 @@ declare function isError<T>(response: ActionResult<T>): response is ErrorResult;
  */
 declare function isSuccess<T>(response: ActionResult<T>): response is SuccessResult<T>;
 
-export { type ActionResult, type ErrorData, type ErrorResult, type InitialState, type SuccessResult, error, initialState, isError, isSuccess, ok };
+type FormContext = {
+    errors?: Record<string, string>;
+};
+declare const FormContext: React$1.Context<FormContext>;
+/**
+ * A hook to retrieve the error message for a form field from the FormContext.
+ */
+declare function useFormError(fieldName: string): string | undefined;
+
+type CommonFormProps = {
+    validationErrors?: ErrorData;
+};
+interface ChildlessFormProps extends Omit<FormHTMLAttributes<HTMLFormElement>, "children">, CommonFormProps {
+    asChild?: false;
+    children?: React.ReactNode | undefined;
+}
+interface ChildFormProps extends FormHTMLAttributes<HTMLFormElement>, CommonFormProps {
+    asChild: true;
+    children: React.ReactNode;
+}
+type FormProps = ChildlessFormProps | ChildFormProps;
+declare function Form(props: FormProps): react_jsx_runtime.JSX.Element;
+
+export { type ActionResult, type ErrorData, type ErrorResult, Form, FormContext, type InitialState, type SuccessResult, error, initialState, isError, isSuccess, ok, useFormError };

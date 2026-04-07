@@ -1,15 +1,19 @@
 {
-  "name": "kirby-forms",
+  "name": "@mrkirby153/forms",
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "build": "rm -rf dist && tsup src/index.ts --format cjs,esm --dts --minify"
+    "build": "rm -rf dist && tsup src/index.ts --format cjs,esm --dts --minify",
+    "watch": "tsup src/index.ts --format cjs,esm --dts --minify --watch"
   },
   "keywords": [],
   "author": "mrkirby153",
   "license": "MIT",
+  "main": "dist/index.js",
   "packageManager": "pnpm@10.33.0",
   "devDependencies": {
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "tsup": "^8.5.1",
@@ -22,7 +26,11 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "default": "./dist/index.js"
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
     }
+  },
+  "dependencies": {
+    "@radix-ui/react-slot": "^1.2.4"
   }
 }

@@ -3,5 +3,5 @@ pre-commit:
   jobs:
     - name: compile typescript
       glob: "*.{ts,tsx}"
-      run: "pnpm run build"
+      run: "pnpm run build && git add dist"
       stage_fixed: true
